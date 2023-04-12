@@ -1,3 +1,7 @@
+# Solicitar Ano
+# Solicitar a sigla do estado
+# Solicitar Cargo
+# Solicitar o ID da eleição(Exemplo: 544 ou 546)
 '''
     O TSE divulga na sua página oficial um webservice que fornece os dados 
     das apurações das eleições realizadas no Brasil.
@@ -37,6 +41,8 @@ import requests
 
 url = 'https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json'
 
+# Primeiramente vamos perguntar
+
 # Vamos solicitar os dados e armazenar em uma variável
 dados_retorno = requests.get(url).json()
 
@@ -44,7 +50,7 @@ dados_retorno = requests.get(url).json()
 arquivo = open('resultados.txt', 'w')
 
 # Em seguida vamos guardar as informações no nosso arquivo criado
-#arquivo.write(dados_retorno)
+#arquivo.write(Variavel Final)
 print(dados_retorno)
 
 # Agora fazemos um print só para informar que o arquivo foi gerado
