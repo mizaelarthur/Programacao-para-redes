@@ -23,3 +23,11 @@ def broadCast(msg, addrSource):
         if addr != addrSource:
             sockConn.send(msg.encode('utf-8'))
 
+
+try:
+    allSocks = []
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind((SERVER, PORT))
+
+    print ("Listening in: ", (SERVER, PORT))
+    sock.listen(5)
