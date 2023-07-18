@@ -30,4 +30,4 @@ try:
     sock.bind((SERVER, PORT))
 
     print ("Listening in: ", (SERVER, PORT))
-    sock.listen(5)
+    sock.listen()
