@@ -1,10 +1,8 @@
 import socket, threading
 
-# Defininindo endereço e Porta do Servidor
 SERVER = '0.0.0.0'
 PORT = 5678
 
-# Criei uma função para interação de mensagem. Caso o cliente digite "/q" ele encerra o socket.
 def cliInteraction(sockConn, addr):
     msg = b''
     while msg != b'/q':
@@ -23,20 +21,19 @@ def broadCast(msg, addrSource):
         if addr != addrSource:
             sockConn.send(msg.encode('utf-8'))
 
-
 try:
     allSocks = []
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((SERVER, PORT))
 
     print ("Listening in: ", (SERVER, PORT))
-    sock.listen()
+    sock.listen(5)
 
     while True:
         sockConn, addr = sock.accept()
         print ("Connection from: ", addr)
         allSocks.append((sockConn, addr))
         tClient = threading.Thread(target=cliInteraction, args=(sockConn, addr))
-        tClient.start(5)
+        tClient.start()
 except Exception as e:
     print ("Fail: ", e)
