@@ -37,6 +37,6 @@ while True:
         print ("Connection from: ", addr)
         allSocks.append((sockConn, addr))
         tClient = threading.Thread(target=cliInteraction, args=(sockConn, addr))
-        tClient.start()
+        tClient.start(5)
 except Exception as e:
     print ("Fail: ", e)
