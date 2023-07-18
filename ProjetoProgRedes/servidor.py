@@ -32,7 +32,7 @@ try:
     print ("Listening in: ", (SERVER, PORT))
     sock.listen()
 
-while True:
+    while True:
         sockConn, addr = sock.accept()
         print ("Connection from: ", addr)
         allSocks.append((sockConn, addr))
