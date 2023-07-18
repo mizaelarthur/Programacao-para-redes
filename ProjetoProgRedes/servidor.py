@@ -31,3 +31,12 @@ try:
 
     print ("Listening in: ", (SERVER, PORT))
     sock.listen()
+
+while True:
+        sockConn, addr = sock.accept()
+        print ("Connection from: ", addr)
+        allSocks.append((sockConn, addr))
+        tClient = threading.Thread(target=cliInteraction, args=(sockConn, addr))
+        tClient.start()
+except Exception as e:
+    print ("Fail: ", e)
