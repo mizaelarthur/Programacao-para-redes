@@ -1,0 +1,2 @@
+2023-07-31 00:27:36 | INFO | 127.0.0.1:62191 | Conexão | Nova conexão: Cliente 127.0.0.1:62191 conectado.
+2023-07-31 00:27:37 | INFO | 127.0.0.1:62191 | solicitação | Solicitou Listar Clientes
