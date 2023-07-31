@@ -10,7 +10,7 @@ from rss_config import noticia_rss
 
 
 
-def comunicacao_cliente(client_socket, address):
+def comandos(client_socket, address):
     try:
         # Notificar o Telegram sobre a nova conexão
         message = f"Nova conexão: Cliente {address[0]}:{address[1]} conectado."
@@ -152,6 +152,7 @@ def listar_arqv():
         if files_list:
             return "\n".join(files_list)
     return "Nenhum arquivo encontrado na pasta /server_files."
+
 
 
 
