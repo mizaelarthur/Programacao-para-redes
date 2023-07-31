@@ -8,7 +8,7 @@ import requests
 import os
 
 # Agora vamos importas os outros arquivos de Configuração
-from comunicação_cliente import  comunicacao_cliente
+from comunicação_cliente import  *
 from log import LOG_FILE
 
 
@@ -22,7 +22,7 @@ def start_server():
         client_socket, address = server_socket.accept()
         print(f"Cliente {address[0]}:{address[1]} conectado.")
         clients[address] = client_socket
-        client_handler = threading.Thread(target=comunicacao_cliente, args=(client_socket, address))
+        client_handler = threading.Thread(target=comandos, args=(client_socket, address))
         client_handler.start()
 
 if __name__ == "__main__":
