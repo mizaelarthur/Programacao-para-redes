@@ -1,7 +1,7 @@
 # Aqui vamos colocar as funções de comunicação com o BOT TELEGRAM
 # Vamos importar os outros códigos
 import requests
-import servidor
+from servidor import clients
 
 
 # Telegram COnfigurações
@@ -34,3 +34,18 @@ def envia_msg_telegram(message):
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"Erro ao enviar mensagem para o Telegram: {e}")
+
+
+"""
+    Função para listar os clientes conectados no servidor.
+
+    Essa função percorre o dicionário 'clients' e cria uma lista com as informações de cada cliente conectado.
+    Retorna a lista de clientes conectados, onde cada elemento da lista contém uma tupla com o endereço IP e a porta do cliente.
+
+    Retorna:
+        list: Lista de clientes conectados no formato [(IP, porta), ...]
+    """
+def lista_conectado():
+    clients_list = "\n".join(f"Cliente {addr[0]}:{addr[1]}" for addr in clients.keys())
+    message = "Clientes conectados:\n" + clients_list
+    envia_msg_telegram(message)

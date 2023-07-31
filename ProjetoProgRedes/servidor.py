@@ -9,5 +9,25 @@ import os
 
 # Agora vamos importas os outros arquivos de Configuração
 import rss_config
+import telegram
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+clients = {}
 
